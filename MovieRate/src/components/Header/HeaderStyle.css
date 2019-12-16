@@ -1,0 +1,30 @@
+.movieRateLink, .navLink {
+  text-decoration: none; 
+  color: white;
+}
+
+.activeNavLink {
+  color: #707070;
+}
+
+.header {
+  background: silver;
+  height: 100px;
+  width: 100%;
+  position: sticky;
+  top: 0;
+}
+
+.headerInfo {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 70%;
+  margin-left: 15%;
+}
+
+.nav {
+  display: flex;
+  width: 100px;
+  justify-content: space-between;
+}
