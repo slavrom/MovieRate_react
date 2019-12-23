@@ -1,0 +1,18 @@
+.startBar {
+  text-align: center;
+  width: 40%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.644);
+  padding: 10px;
+  margin-left: 30%;
+  margin-top: 200px;
+  padding-bottom: 20px;
+}
+
+.startLink {
+  text-decoration: none;
+  color: #000;
+}
+
+.startBtn {
+  width: 250px;
+}
