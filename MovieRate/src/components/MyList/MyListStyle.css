@@ -1,3 +1,18 @@
+.listWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .listStyle {
   margin-top: 20px;
 }
+
+.selectStyle {
+  text-align: center;
+  width: 13%;
+  height: 30px;
+  background: rgb(33, 2, 37)#3a0e6d7a;
+  color: #000;
+  position: fixed;
+}
+

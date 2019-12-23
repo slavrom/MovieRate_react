@@ -20,7 +20,11 @@
   margin-right: 30px;
 }
 
-.nextBtn {
+.next {
   align-self: flex-end;
   margin-top: 10px;
+}
+
+.next:hover {
+  background: silver;
 }

@@ -1,14 +1,11 @@
-.movieWrapper {
-  margin-top: 20px;
-}
-
 .movieBar {
   display: flex;
-  width: 70%;
+  width: 69%;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.644);
   padding: 10px;
   margin-bottom: 20px;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
   margin-left: 15%;
 }
 
@@ -17,4 +14,65 @@
   height: 150px;
   background-repeat: no-repeat;
   background-size: cover;
-};
+}
+
+.imgOnEdit {
+  width: 200px;
+  height: 300px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-right: 30px;
+}
+
+.editBtns {
+  display: flex;
+  flex-direction: column;
+  height: 80px;
+  justify-content: space-between;
+}
+
+.btns {
+  width: 70px;
+  height: 35px;
+  border-radius: 20px;
+  color: #000;
+  background: rgb(121, 49, 214);
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+}
+
+.btns:focus {
+  outline: none;
+}
+
+.edit:hover {
+  background: #32cd32;
+}
+
+.unrate:hover {
+  background: #e50000;
+}
+
+.cancel:hover {
+  background: silver;
+}
+
+.edit:hover,
+.unrate:hover,
+.cancel:hover,
+.next:hover {
+  transition: 0.3s;
+  cursor: pointer;
+  color: #fff;
+}
+
+.score {
+  border-radius: 5px;
+  padding: 3px;
+  background: gold;
+}
+
+.movieTitle {
+  width: 200px;
+}

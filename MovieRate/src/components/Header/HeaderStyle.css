@@ -1,14 +1,15 @@
-.movieRateLink, .navLink {
-  text-decoration: none; 
+.movieRateLink,
+.navLink {
+  text-decoration: none;
   color: white;
 }
 
 .activeNavLink {
-  color: #707070;
+  color: #000;
 }
 
 .header {
-  background: silver;
+  background: #b9a3e3;
   height: 100px;
   width: 100%;
   position: sticky;
@@ -25,6 +26,10 @@
 
 .nav {
   display: flex;
-  width: 100px;
+  width: 150px;
   justify-content: space-between;
+}
+
+.navLink:hover {
+  color: #000;
 }

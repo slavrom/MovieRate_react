@@ -10,4 +10,9 @@
 
 .startLink {
   text-decoration: none;
+  color: #000;
+}
+
+.startBtn {
+  width: 250px;
 }
