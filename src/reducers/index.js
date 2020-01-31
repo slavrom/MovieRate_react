@@ -1,4 +1,4 @@
-import { ADD_TO_LIST, REMOVE_FROM_LIST, CHANGE_RATING } from '../actions';
+import { ADD_TO_LIST, REMOVE_FROM_LIST, CHANGE_RATING, CLEAR_LIST } from '../actions';
 
 const listOfMovies = [];
 
@@ -11,10 +11,12 @@ export default (state = listOfMovies, action) => {
     case CHANGE_RATING:
       state.filter(movie => {
         if (movie.id === +action.payloadId) {
-          return (movie.rating = action.payloadRating);
+          return (movie.rating = +action.payloadRating);
         }
       });
       return state;
+    case CLEAR_LIST:
+      return state = [];
     default:
       return state;
   }

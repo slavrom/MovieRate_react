@@ -7,6 +7,9 @@
   justify-content: space-between;
   align-items: center;
   margin-left: 15%;
+  background: #fff;
+  min-width: 700px;
+  animation: movieBarAppear 1s;
 }
 
 .imgStyle {
@@ -24,6 +27,17 @@
   margin-right: 30px;
 }
 
+.infoOnEdit {
+  width: 95%;
+}
+
+.editRatingBtns {
+  display: flex;
+  flex-direction: column;
+  height: 120px;
+  justify-content: space-between;
+}
+
 .editBtns {
   display: flex;
   flex-direction: column;
@@ -36,7 +50,7 @@
   height: 35px;
   border-radius: 20px;
   color: #000;
-  background: rgb(121, 49, 214);
+  font-family: 'Trebuchet MS';
   font-size: 16px;
   font-weight: bold;
   border: none;
@@ -55,24 +69,62 @@
 }
 
 .cancel:hover {
-  background: silver;
+  background: #585858;
+}
+
+.view:hover {
+  background: rgb(216, 144, 10);
 }
 
 .edit:hover,
 .unrate:hover,
 .cancel:hover,
-.next:hover {
+.next:hover,
+.view:hover {
   transition: 0.3s;
   cursor: pointer;
   color: #fff;
 }
 
-.score {
+.badScore {
+  border-radius: 5px;
+  padding: 3px;
+  background: rgb(240, 14, 26);
+  font-weight: bold;
+  color: #fff;
+}
+
+.normalScore {
+  border-radius: 5px;
+  padding: 3px;
+  background: rgb(251, 235, 6);
+  font-weight: bold;
+  color: #fff;
+}
+
+.bestScore {
   border-radius: 5px;
   padding: 3px;
   background: gold;
+  background: rgb(26, 202, 70);
+  font-weight: bold;
+  color: #fff;
 }
 
 .movieTitle {
   width: 200px;
+}
+
+.movieBarOnEdit {
+  animation: movieBarOnEditAppear 1s;
+}
+
+@keyframes movieBarAppear {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@keyframes movieBarOnEditAppear {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
 }

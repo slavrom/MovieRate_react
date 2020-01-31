@@ -1,5 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from 'react-router-dom';
 import Header from './components/Header/Header';
 import Rate from './components/Rate/Rate';
 import MyList from './components/MyList/MyList';
@@ -17,6 +22,7 @@ function App() {
           <Route path='/rate' component={Rate} />
           <Route path='/mylist' component={MyList} />
           <Route path='/search' component={Search} />
+          {/* <Redirect to='/rate' /> */}
         </Switch>
       </div>
       <Footer />

@@ -1,6 +1,7 @@
 export const ADD_TO_LIST = 'ADD_TO_LIST';
 export const REMOVE_FROM_LIST = 'REMOVE_ROM_LIST';
 export const CHANGE_RATING = 'CHANGE_RATING';
+export const CLEAR_LIST= 'CLEAR_LIST';
 
 export const addMovieToList = movie => ({
   type: ADD_TO_LIST,
@@ -17,3 +18,7 @@ export const changeRating = (rating, id) => ({
   payloadRating: rating,
   payloadId: id
 });
+
+export const clearList = () => ({
+  type: CLEAR_LIST
+})

@@ -7,6 +7,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
@@ -16,4 +17,5 @@ code {
 
 .main {
   min-height: calc(100vh - 100px);
+  background: #E0E0E0;
 }

@@ -41,7 +41,7 @@ function MyList() {
         cursor: 'pointer',
         boxShadow: 'none',
         borderColor: 'inherit',
-        backgroundColor: '#3a0e6d7a',
+        backgroundColor: '#888888',
         borderRadius: '0px 0px 15px 0px'
       };
     },
@@ -59,7 +59,7 @@ function MyList() {
     menu: provider => {
       return {
         ...provider,
-        backgroundColor: '#8b58bf'
+        backgroundColor: '#686868'
       };
     },
     option: provider => {

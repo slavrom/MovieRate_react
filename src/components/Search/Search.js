@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import MovieBar from '../MovieBar/MovieBar';
+import { PropTypes } from 'prop-types';
 import './SearchStyle.css';
 
 function Search() {
@@ -42,6 +43,11 @@ function Search() {
       </div>
     </div>
   );
+}
+
+Search.propTypes = {
+  searchedMovies: PropTypes.bool,
+  searchText: PropTypes.string
 }
 
 export default Search;

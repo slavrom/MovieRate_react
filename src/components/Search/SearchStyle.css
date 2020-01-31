@@ -3,6 +3,7 @@
   height: 40px;
   border: solid grey;
   border-width: 0px 0px 1px 0px;
+  background: #fff;
 }
 
 .searchInput input {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import LogIn from '../LogIn/LogIn';
 import './HeaderStyle.css';
 
 function Header() {
@@ -8,7 +9,9 @@ function Header() {
       <div className='headerInfo'>
         <div>
           <Link className='movieRateLink' to='/'>
-            <h1>MovieRate</h1>
+            <h1>
+              Movie<span className='brand'>Rate</span>
+            </h1>
           </Link>
         </div>
         <nav className='nav'>
@@ -37,6 +40,7 @@ function Header() {
           </NavLink>
         </nav>
       </div>
+      <LogIn />
     </div>
   );
 }

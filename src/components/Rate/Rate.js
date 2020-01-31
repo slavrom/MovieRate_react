@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addMovieToList } from '../../actions';
 import { rateValue } from '../../assets/rate.js';
@@ -47,6 +47,19 @@ function Rate() {
     setIsThereMovie(!isThereMovie);
   }
 
+  function shortString(str, length) {
+    const handlerLength = str.length > length;
+    const ending = '...';
+    if (length == null) {
+      length = 100;
+    }
+    if (handlerLength) {
+      return str.substring(0, length - ending.length) + ending;
+    } else {
+      return str;
+    }
+  }
+
   return (
     <div className='wrapperStyle'>
       <div className='movieRateBar'>
@@ -67,24 +80,37 @@ function Rate() {
               <b>{movie.title}</b>
             </p>
             <p>{`Year: ${new Date(movie.release_date).getFullYear()}`}</p>
-            <p>{movie.overview}</p>
+            <p className='overview'>
+              {movie.overview && shortString(movie.overview, 330)}
+            </p>
           </div>
-          <form onSubmit={addMovie}>
-            {rateValue.map(i => (
-              <React.Fragment key={i.value}>
-                <input
-                  type='radio'
-                  id={i.value}
-                  name='rate'
-                  value={i.value}
-                  checked={rating === i.value}
-                  onChange={ratingHandler}
-                  required
-                />
-                <label htmlFor={i.value}>{i.value}</label>
-              </React.Fragment>
-            ))}{' '}
-            <button type='submit' className='btns edit'>
+          <form className='rateForm' onSubmit={addMovie}>
+            <div className='starsBar'>
+              <div className='ratePoints'>
+                {rateValue.map(i => (
+                  <React.Fragment key={i.value}>
+                    <label htmlFor={i.value}>{i.value}</label>
+                  </React.Fragment>
+                ))}
+              </div>
+              <span className='star-rating'>
+                {rateValue.map(i => (
+                  <React.Fragment key={i.value}>
+                    <input
+                      type='radio'
+                      id={i.value}
+                      name='rate'
+                      value={i.value}
+                      checked={rating === i.value}
+                      onChange={ratingHandler}
+                      required
+                    />
+                    <i></i>
+                  </React.Fragment>
+                ))}
+              </span>
+            </div>
+            <button type='submit' className='btns edit rateBtn'>
               Rate
             </button>
           </form>

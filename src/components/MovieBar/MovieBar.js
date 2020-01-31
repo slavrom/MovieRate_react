@@ -4,7 +4,7 @@ import { removeFromList, changeRating, addMovieToList } from '../../actions';
 import { rateValue } from '../../assets/rate.js';
 import './MovieBarStyle.css';
 
-function MovieBar({ movie, index }) {
+function MovieBar({ movie }) {
   const [onEdit, setOnEdit] = useState(false);
   const [movieRating, setMovieRating] = useState('');
   const [movieId, setMovieId] = useState('');
@@ -19,7 +19,7 @@ function MovieBar({ movie, index }) {
 
   function myListRatingHandler(e) {
     setMovieRating(e.target.value);
-    setMovieId(e.target.title);
+    setMovieId(e.target.pattern);
   }
 
   function onSubmit(e) {
@@ -31,8 +31,30 @@ function MovieBar({ movie, index }) {
     setOnEdit(false);
   }
 
+  function viewMovie(id) {
+    window.open(`https://www.themoviedb.org/movie/${id}`, '_blank');
+  }
+
+  function showScore(rating) {
+    if (rating <= 4) {
+      return 'badScore';
+    } else if (rating <= 7) {
+      return 'normalScore';
+    } else {
+      return 'bestScore';
+    }
+  }
+
+  function showOnEditBar(i) {
+    if (i === true) {
+      return 'movieBarOnEdit movieBar';
+    } else {
+      return 'movieBar';
+    }
+  }
+
   return (
-    <div className='movieBar'>
+    <div className={showOnEditBar(onEdit)}>
       <img
         src={
           poster_path
@@ -48,40 +70,58 @@ function MovieBar({ movie, index }) {
         </p>
         {onEdit && (
           <React.Fragment>
-            <div>
+            <div className='infoOnEdit'>
               <p>{`Year: ${new Date(release_date).getFullYear()}`}</p>
               <p>{overview}</p>
             </div>
-            <form onSubmit={onSubmit}>
-              {rateValue.map(i => (
-                <React.Fragment key={i.value}>
-                  <input
-                    type='radio'
-                    id={i.value}
-                    title={id}
-                    name='rate'
-                    value={i.value}
-                    onClick={myListRatingHandler}
-                    required
-                  />
-                  <label htmlFor={i.value}>{i.value}</label>
-                </React.Fragment>
-              ))}{' '}
-              <button type='submit' className='btns edit'>
-                Rate
-              </button>
+            <form className='rateForm' onSubmit={onSubmit}>
+              <div className='starsBar'>
+                <div className='ratePoints'>
+                  {rateValue.map(i => (
+                    <React.Fragment key={i.value}>
+                      <label htmlFor={i.value}>{i.value}</label>
+                    </React.Fragment>
+                  ))}
+                </div>
+                <span className='star-rating'>
+                  {rateValue.map(i => (
+                    <React.Fragment key={i.value}>
+                      <input
+                        type='radio'
+                        id={i.value}
+                        name='rate'
+                        value={i.value}
+                        onChange={myListRatingHandler}
+                        required
+                      />
+                      <i></i>
+                    </React.Fragment>
+                  ))}
+                </span>
+              </div>
+              <div>
+                <button type='submit' className='btns edit rateBtn'>
+                  Rate
+                </button>
+                <button
+                  onClick={() => setOnEdit(false)}
+                  className='btns cancel'
+                >
+                  Cancel
+                </button>
+              </div>
             </form>
-            <button onClick={() => setOnEdit(false)} className='btns cancel'>
-              Cancel
-            </button>
           </React.Fragment>
         )}
       </div>
-      {rating && <p className='score'>{`${rating}/10`}</p>}
+      {rating && <p className={showScore(rating)}>{`${rating}/10`}</p>}
       {!onEdit && (
-        <div className={rating && 'editBtns'}>
+        <div className={rating ? 'editRatingBtns' : 'editBtns'}>
           <button className='btns edit' onClick={() => setOnEdit(true)}>
             {rating ? 'Edit' : 'Rate'}
+          </button>
+          <button className='btns view' onClick={() => viewMovie(id)}>
+            View
           </button>
           {rating && (
             <button className='btns unrate' onClick={() => deleteMovie(id)}>
